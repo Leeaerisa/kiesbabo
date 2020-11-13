@@ -1,0 +1,81 @@
+1. mySQL workbench를 실행합니다.
+
+2. root사용자로 접속합니다.
+
+3. 좌측 상단 메뉴에서 Query 아래부분에 있는 원통모양을 클릭합니다.(좌측에서 4번째 +표시가 되어있는 첫번째 아이콘)
+
+4. Name: new_schema라고 되어있는 부분을 classtudydb로 적어줍니다.
+
+5. Default Charset은 utf8로, Default Collation은 utf8_general_ci를 선택합니다.
+
+6. 우측 하단 Apply버튼을 눌러 새로운 스키마 생성을 완료합니다.
+
+7. Apply SQL Script to Database창이 뜨면 아무 설정도 건드리지 않은상태로 Apply버튼을 누르고 Finish를 눌러 완료합니다.
+
+8. 좌측 중간쯤에 Schemas라고 되어있는 부분에서 왼쪽 Administraion을 눌러줍니다.
+
+9. 좌측 상단 MANAGEMENT의 3번째 항목인 Users and System Variables를 클릭합니다.
+
+10. 좌측 하단 Add Account를 누르고 아래와 같이 작성합니다.
+Login Name : classtudyuser
+Authentication Type: Standard
+Limit to Hosts Matching : %
+password : classtudy
+confirm Password : classtudy
+
+11. 위와 같이 작성이 완료되면 우측 하단 Apply를 눌러줍니다.
+
+12. 좌측에 만들어진 classtudyuser(From Host가 %인것)를 선택하고 중앙 상단 Schema Privileges탭을 클릭합니다.
+
+13. 우측 중앙 살짝 위 Add Entry 버튼을 누르고 가장 아래 Selected schema 버튼을 클릭하고 우측 db를 classtudydb로 변경합니다.
+
+14. 우측 하단 Select "ALL" 버튼을 누르고 Apply버튼을 눌러줍니다.
+
+15. 좌측 하단 Add Account를 누르고 아래와 같이 작성합니다.
+Login Name : classtudyuser
+Authentication Type: Standard
+Limit to Hosts Matching : localhost
+password : classtudy
+confirm Password : classtudy
+
+16. 위와 같이 작성이 완료되면 우측 하단 Apply를 눌러줍니다.
+
+17. 좌측에 만들어진 classtudyuser(From Host가 localhost인것)를 선택하고 중앙 상단 Schema Privileges탭을 클릭합니다.
+
+18. 우측 중앙 살짝 위 Add Entry 버튼을 누르고 가장 아래 Selected schema 버튼을 클릭하고 우측 db를 classtudydb로 변경합니다.
+
+19. 우측 하단 Select "ALL" 버튼을 누르고 Apply버튼을 눌러줍니다.
+
+20. 좌측 최상단 집모양을 클릭하고 메인화면으로 나갑니다.
+
+21. 중앙 좌측 MySQL Connections 옆에 원에 둘러쌓여있는 + 버튼을 누릅니다.
+
+22. 아래와 같이 작성합니다.
+Connection Name : Classtudy
+Connection Method : Standard (TCP/IP)
+Hostname: 127.0.0.1         Port: 3306
+Username : classtudyuser
+Default schema : classtudydb
+
+23. Test Connection버튼을 누르고 password에 classtudy를 치고 OK를 누르면 Successfully made the MySQL connection 이란 문구가 나와야합니다.
+
+24. 정상적으로 테스트가 끝났으면 OK버튼을 누르고 새로 만들어진 Classtudy를 누르면 쿼리를 날릴 수 있는 화면으로 전환됩니다.
+
+25. 아래 쿼리문을 복사하시고 붙여넣으시고 ctrl + Enter로 member 테이블을 만들어줍니다.
+
+create table member (
+    userid varchar(16) primary key,
+    passwd varchar(16) not null,
+    passwdCheck varchar(16) not null,
+    name varchar(16) not null,
+    dateOfBirth varchar(10) not null,
+    gender varchar(2) not null,
+    tel varchar(16) not null,
+    zipcode varchar(8) not null,
+    address varchar(60) not null,
+    addressDetail varchar(60) not null,
+    email varchar(25) not null,
+    date timestamp    
+) engine=InnoDB default charset=utf8;
+
+26. DB생성이 완료되었습니다. 
