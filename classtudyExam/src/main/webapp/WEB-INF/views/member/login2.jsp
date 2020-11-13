@@ -1,14 +1,21 @@
 <%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>회원 로그인 메인</title>
 	<%@ include file="../include/header.jsp" %>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="/static/js/BootConfirm.js"></script>
+
+
 </head>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
+
 	<div class="container">
 		<form class="form-horizontal" action="/member/login" method="post">
 			<!-- 로그인을 하지 않고 들어온 경우 : 로그인할 자료를 입력 할 수 있게 한다. -->

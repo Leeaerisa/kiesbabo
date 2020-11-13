@@ -6,9 +6,9 @@ import lombok.Data;
 
 @Data
 public class MemberDTO {
+
 	private	String userid;
 	private	String passwd;
-	private String passwdCheck;
 	private	String name;
 	private String dateOfBirth;
 	private String gender;
@@ -19,8 +19,6 @@ public class MemberDTO {
 	private String email;
 	private Date   date;
 	
-	public MemberDTO() {
-		super();
-	}	
+	public MemberDTO() {}	
 	
 }
